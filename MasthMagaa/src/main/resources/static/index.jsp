@@ -7,5 +7,6 @@
     <a href="Product.jsp">Product Page</a><br>
     <a href="Customer.jsp">Customer Page</a><br>
     <a href="Place.jsp">Place Page</a><br>
+    <a href="Movie.jsp">Movie Page</a><br>
 </body>
 </html>

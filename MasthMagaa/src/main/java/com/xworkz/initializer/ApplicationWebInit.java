@@ -23,6 +23,6 @@ public class ApplicationWebInit extends AbstractAnnotationConfigDispatcherServle
     @Override
     protected String[] getServletMappings() {
         System.out.println("Running getServletMappings().");
-        return new String[]{"/click","/register","/product","/customer"};
+        return new String[]{"/click","/register","/product","/customer","/place","/movie"};
     }
 }
