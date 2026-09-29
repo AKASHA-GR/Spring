@@ -8,5 +8,6 @@
     <a href="Customer.jsp">Customer Page</a><br>
     <a href="Place.jsp">Place Page</a><br>
     <a href="Movie.jsp">Movie Page</a><br>
+    <a href="Camara.jsp">Camara Page</a><br>
 </body>
 </html>

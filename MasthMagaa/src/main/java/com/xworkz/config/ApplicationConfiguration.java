@@ -13,4 +13,6 @@ public class ApplicationConfiguration {
     public ApplicationConfiguration(){
         System.out.println("ApplicationConfiguration started.");
     }
+
+
 }

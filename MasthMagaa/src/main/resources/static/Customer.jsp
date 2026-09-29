@@ -10,7 +10,8 @@
                 Customer Address: <input type="text" name="address">
                 <input type="submit" value="Customer">
 
-                <h2><span>${}</span></h2>
+                <h2><span>${customerMessage}</span></h2>+
+
             </pre>
         </form>
     </body>
