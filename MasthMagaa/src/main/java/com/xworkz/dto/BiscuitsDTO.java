@@ -5,36 +5,33 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 @Getter
 @Setter
 @ToString
 @Data
 public class BiscuitsDTO {
-    @NotNull
-    @Size(min = 2, max = 10)
+    @NotBlank
+    @Size(min = 2, max = 10,message = "Name should be between 2 and 10 characters.")
     private String name;
 
-    @NotNull
-    @Size(min = 2, max = 10)
+    @NotBlank
+    @Size(min = 2, max = 10,message = "Brand should be between 2 and 10 characters.")
     private String brand;
 
     @NotNull
-    @Max(100)
-    @Min(2)
+    @Max(value = 100,message = "Price should be between 2 and 100.")
+    @Min(value = 2,message = "Price should be between 2 and 100.")
     private double price;
 
     @NotNull
-    @Max(100)
-    @Min(2)
+    @Max(value = 100,message = "Price should be between 2 and 100.")
+    @Min(value = 2,message = "Price should be between 2 and 100.")
     private double totleSuger;
 
-    @NotNull
-    @Size(min = 3,max = 30)
+    @NotBlank
+    @Size(min = 3,max = 30,message = "Location should be between 3 and 30 characters.")
     private String location;
 
     public BiscuitsDTO(){

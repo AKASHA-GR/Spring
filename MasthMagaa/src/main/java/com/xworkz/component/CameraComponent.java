@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
 import java.io.PrintWriter;
+import java.util.List;
 
 @Component
 @RequestMapping("/")
@@ -23,10 +25,17 @@ public class CameraComponent {
     }
 
     @RequestMapping("/camara")
-    public String camara(@Valid Model model, CamaraDTO camaraDTO, BindingResult bindingResult) {
+    public String camara( Model model,@Valid CamaraDTO camaraDTO, BindingResult bindingResult) {
         System.out.println("The CamaraDTO :--->"+camaraDTO);
 
-        camaraService.saveAndValidate(camaraDTO);
+        if(bindingResult.hasErrors()){
+            System.out.println("There is validation error,please fix it");
+            List<ObjectError> errors = bindingResult.getAllErrors();
+            model.addAttribute("validationErrors",errors);
+            model.addAttribute("camaraDTO",camaraDTO);
+        }else {
+            System.out.println("There is no validation error, will continue to execute the service.");
+        }
 
         model.addAttribute("camaraMessage","The camana is created.");
         return "Camara.jsp";
