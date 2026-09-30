@@ -9,5 +9,7 @@
     <a href="Place.jsp">Place Page</a><br>
     <a href="Movie.jsp">Movie Page</a><br>
     <a href="Camara.jsp">Camara Page</a><br>
+    <a href="Biscuits.jsp">Buicuits Page</a><br>
+    <a href="Box.jsp">Box Page</a><br>
 </body>
 </html>

@@ -14,25 +14,30 @@ import javax.validation.constraints.Size;
 @Setter
 @ToString
 @Data
-public class CamaraDTO {
+public class BiscuitsDTO {
+    @NotNull
+    @Size(min = 2, max = 10)
+    private String name;
+
     @NotNull
     @Size(min = 2, max = 10)
     private String brand;
 
     @NotNull
-    @Size(min = 2, max = 10)
-    private String model;
-
-    @NotNull
-    @Size(min = 2, max = 10)
-    private String sensorType;
-
-    @NotNull
-    @Min(2)
     @Max(100)
+    @Min(2)
     private double price;
 
-    public CamaraDTO(){
-        System.out.println("The CamaraDTO is created.");
+    @NotNull
+    @Max(100)
+    @Min(2)
+    private double totleSuger;
+
+    @NotNull
+    @Size(min = 3,max = 30)
+    private String location;
+
+    public BiscuitsDTO(){
+        System.out.println("The BiscuitsDTO is created.");
     }
 }
