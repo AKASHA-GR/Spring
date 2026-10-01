@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
@@ -19,7 +20,7 @@ public class BoxComponent {
         System.out.println("The Box component is created.");
     }
 
-    @RequestMapping("/box")
+    @PostMapping("/box")
     public String box(Model model, @Valid BoxDTO boxDTO, BindingResult bindingResult){
         System.out.println("The BoxDTO:"+boxDTO);
 

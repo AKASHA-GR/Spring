@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
@@ -24,7 +25,7 @@ public class CameraComponent {
         System.out.println("The CustomerComponent is created.");
     }
 
-    @RequestMapping("/camara")
+    @PostMapping("/camara")
     public String camara( Model model,@Valid CamaraDTO camaraDTO, BindingResult bindingResult) {
         System.out.println("The CamaraDTO :--->"+camaraDTO);
 
