@@ -4,7 +4,7 @@
     <title>Customer Page</title>
 </head>
     <body>
-        <form action="customer">
+        <form action="customer" method="post">
             <pre>
                 Customer Name: <input type="text" name="name" value="${customerDTO.name}">
                 Customer Age: <input type="text" name="age" value="${customerDTO.age}">

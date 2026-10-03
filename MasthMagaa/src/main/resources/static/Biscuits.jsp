@@ -4,7 +4,7 @@
     <tile> </tile>
 </head>
 <body>
-    <form action="biscuits">
+    <form action="biscuits" method="post">
         <pre>
             Name: <input type="text" name="name" value="${biscuitsDTO.name}">
             Brand: <input type="text" name="brand" value="${biscuitsDTO.brand}">

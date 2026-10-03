@@ -4,7 +4,7 @@
     <tile>Box </tile>
 </head>
 <body>
-<form action="box">
+<form action="box" method="post">
         <pre>
             Shape: <input type="text" name="shape" value="${boxDTO.shape}">
             type: <input type="text" name="type"   value="${boxDTO.type}">

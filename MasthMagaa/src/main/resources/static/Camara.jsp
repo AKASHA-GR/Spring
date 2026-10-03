@@ -5,7 +5,7 @@
 </head>
 <body>
     <pre>
-        <form action="camara">
+        <form action="camara" method="post">
             Brand: <input type="text" name="brand" value="${camaraDTO.brand}">
             Model: <input type="text" name="model" value="${camaraDTO.model}">
             SensorType: <input type="text" name="sensorType" value="${camaraDTO.sensorType}">
