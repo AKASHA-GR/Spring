@@ -15,9 +15,7 @@
 </head>
 <body>
     <h1>Travel Registration</h1>
-    <c:forEach items="${validationErrors}" var="objectError">
-        <p style="color: red;">${objectError.defaultMessage}</p>
-    </c:forEach>
+
     <form action="register" method="post">
         <div class="form-group">
             <label for="name">Name:</label>
@@ -46,21 +44,17 @@
         <div class="form-group">
             <label for="travelType">Travel Type:</label>
             <select id="travelType" name="travelType" required>
-                <option value="">Select Travel Type</option>
-                <option value="flight">Flight</option>
-                <option value="train">Train</option>
-                <option value="bus">Bus</option>
-                <option value="car">Car</option>
+                <c:forEach items="${travelTypes}" var="travelType">
+                    <option value="${travelType}">${travelType}</option>
+                </c:forEach>
             </select>
         </div>
         <div class="form-group">
             <label for="paymentMethod">Payment Method:</label>
             <select id="paymentMethod" name="paymentMethod" required>
-                <option value="">Select Payment Method</option>
-                <option value="credit card">Credit Card</option>
-                <option value="debit card">Debit Card</option>
-                <option value="cash">Cash</option>
-                <option value="upi">UPI</option>
+                <c:forEach items="${paymentMethods}" var="paymentMethod">
+                    <option value="${paymentMethod}">${paymentMethod}</option>
+                </c:forEach>
             </select>
         </div>
         <div class="form-group">
@@ -69,5 +63,12 @@
         </div>
         <button type="submit">Register</button>
     </form>
+
+    <c:forEach items="${validationErrors}" var="objectError">
+        <p style="color: red;">${objectError.defaultMessage}</p>
+    </c:forEach>
+
+    <p style="color: green;">${travelMessage}</p>
+
 </body>
 </html>
