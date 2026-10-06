@@ -1,10 +1,13 @@
-package com.xworkz.initializer;
+package com.xworkz.configuration;
 
-import com.xworkz.config.ApplicationConfiguration;
-import com.xworkz.config.DatabaseConfiguration;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-public class ApplicationWebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+public class ApplicationWebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer{
+
+    public ApplicationWebInitializer() {
+        System.out.println("The ApplicationWebInitializer object is created\n");
+    }
+
     @Override
     protected Class<?>[] getRootConfigClasses() {
         return new Class[0];

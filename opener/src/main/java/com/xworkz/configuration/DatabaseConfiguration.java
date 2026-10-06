@@ -1,4 +1,4 @@
-package com.xworkz.config;
+package com.xworkz.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,15 +15,15 @@ import javax.sql.DataSource;
 public class DatabaseConfiguration {
 
     public DatabaseConfiguration() {
-        System.out.println("DatabaseConfiguration created");
+        System.out.println("The DatabaseConfiguration object is created\n");
     }
 
     @Bean
     public DataSource dataSource() {
-        System.out.println("DataSource created");
+        System.out.println("The dataSource() method is called\n");
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/travel_db");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/wine_db");
         dataSource.setUsername("root");
         dataSource.setPassword("Akasha@123");
         return dataSource;
@@ -31,7 +31,7 @@ public class DatabaseConfiguration {
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
-        System.out.println("TravelManagerFactory created");
+        System.out.println("The entityManagerFactory() method is called\n");
         LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         localContainerEntityManagerFactoryBean.setDataSource(dataSource);
         localContainerEntityManagerFactoryBean.setPackagesToScan("com.xworkz.dto");
@@ -41,9 +41,10 @@ public class DatabaseConfiguration {
 
     @Bean
     public PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
-        System.out.println("TransactionManager created");
+        System.out.println("The transactionManager() method is called\n");
         JpaTransactionManager jpaTransactionManager = new JpaTransactionManager();
         jpaTransactionManager.setEntityManagerFactory(entityManagerFactory);
         return jpaTransactionManager;
     }
+
 }
