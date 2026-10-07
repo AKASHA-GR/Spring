@@ -15,6 +15,8 @@
          <input type="submit" value="Submit">
      </form>
 
+     <p style="color: green;">${wineMessage}</p>
+
     <c:forEach items="${validationErrors}" var="wine">
         <p style="color: red;">${wine.defaultMessage}</p>
     </c:forEach>

@@ -30,7 +30,7 @@ public class WineDTO implements Serializable {
 
     @NotNull(message = "Manufacture date cannot be null")
     @PastOrPresent(message = "Manufacture date must be in the past or present")
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date manufactureDate;
 
     @NotNull(message = "Age cannot be null")
