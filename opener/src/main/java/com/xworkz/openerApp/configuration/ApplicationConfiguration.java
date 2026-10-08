@@ -1,4 +1,4 @@
-package com.xworkz.configuration;
+package com.xworkz.openerApp.configuration;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

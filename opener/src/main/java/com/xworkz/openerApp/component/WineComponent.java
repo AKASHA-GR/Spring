@@ -1,7 +1,7 @@
-package com.xworkz.component;
+package com.xworkz.openerApp.component;
 
-import com.xworkz.dto.WineDTO;
-import com.xworkz.service.WineService;
+import com.xworkz.openerApp.dto.WineDTO;
+import com.xworkz.openerApp.service.WineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

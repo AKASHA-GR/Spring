@@ -1,4 +1,4 @@
-package com.xworkz.configuration;
+package com.xworkz.openerApp.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -7,11 +7,13 @@ import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 @Configuration
+@EnableTransactionManagement
 public class DatabaseConfiguration {
 
     public DatabaseConfiguration() {
@@ -23,7 +25,7 @@ public class DatabaseConfiguration {
         System.out.println("The dataSource() method is called\n");
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/wine_db");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/opener_db");
         dataSource.setUsername("root");
         dataSource.setPassword("Akasha@123");
         return dataSource;
@@ -34,7 +36,7 @@ public class DatabaseConfiguration {
         System.out.println("The entityManagerFactory() method is called\n");
         LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         localContainerEntityManagerFactoryBean.setDataSource(dataSource);
-        localContainerEntityManagerFactoryBean.setPackagesToScan("com.xworkz.dto");
+        localContainerEntityManagerFactoryBean.setPackagesToScan("com.xworkz.openerApp.entity");
         localContainerEntityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
         return localContainerEntityManagerFactoryBean;
     }

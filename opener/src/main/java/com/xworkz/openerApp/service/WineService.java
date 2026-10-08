@@ -1,6 +1,6 @@
-package com.xworkz.service;
+package com.xworkz.openerApp.service;
 
-import com.xworkz.dto.WineDTO;
+import com.xworkz.openerApp.dto.WineDTO;
 
 public interface WineService {
     public boolean validateAndSave(WineDTO wineDTO);
