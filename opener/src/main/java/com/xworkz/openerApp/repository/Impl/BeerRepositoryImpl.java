@@ -6,12 +6,20 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.Collections;
+import java.util.List;
 
 @Repository
 public class BeerRepositoryImpl implements BeerRepository {
 
     @PersistenceContext
     private EntityManager entityManager;
+
+    List<BeerEntity> beerList;
+
+    public BeerRepositoryImpl() {
+        System.out.println("The BeerRepositoryImpl object is created\n");
+    }
 
     @Override
     public boolean save(BeerEntity beerEntity) {
@@ -22,5 +30,11 @@ public class BeerRepositoryImpl implements BeerRepository {
         }
 
         return false;
+    }
+
+    @Override
+    public List<BeerEntity> getAll() {
+        System.out.println("The getAll() method is called");
+        return entityManager.createNamedQuery("BeerEntity.findAll", BeerEntity.class).getResultList();
     }
 }

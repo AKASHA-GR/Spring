@@ -1,10 +1,19 @@
 package com.xworkz.openerApp.entity;
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "gin_info")
+@Data
+@Getter
+@Setter
+@ToString
 public class GinEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,6 +43,7 @@ public class GinEntity {
     @Column(name = "volume")
     private Double volume;
 
+    @Column(name = "price")
     private Double price;
 
     @Column(name = "is_aged")

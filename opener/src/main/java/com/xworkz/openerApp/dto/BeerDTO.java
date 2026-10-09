@@ -3,7 +3,10 @@ package com.xworkz.openerApp.dto;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -14,19 +17,20 @@ import java.time.LocalDate;
 public class BeerDTO implements Serializable {
 
         @NotBlank
-        @Size(min = 3, max = 10, message = "Company name must be between 3 and 10 characters")
+        @Size(min = 3, max = 50, message = "Company name must be between 3 and 50 characters")
         private String companyName;
 
         @NotBlank
-        @Size(min = 3, max = 20, message = "Company address must be between 3 and 20 characters")
+        @Size(min = 3, max = 50, message = "Company address must be between 3 and 50 characters")
         private String companyAddress;
 
         @NotBlank
-        @Size(min = 3, max = 10, message = "Manufacturer name must be between 3 and 10 characters")
+        @Size(min = 3, max = 50, message = "Manufacturer name must be between 3 and 50 characters")
         private String manufacturerName;
 
         @NotNull
         @PastOrPresent(message = "Manufacture date must be in the past or present")
+        @DateTimeFormat(pattern = "yyyy-MM-dd")
         private LocalDate manufactureDate;
 
         @NotNull
@@ -53,6 +57,7 @@ public class BeerDTO implements Serializable {
 
         @NotNull
         @FutureOrPresent(message = "Expiry date must be in the future or present")
+        @DateTimeFormat(pattern = "yyyy-MM-dd")
         private LocalDate expiryDate;
 
 }

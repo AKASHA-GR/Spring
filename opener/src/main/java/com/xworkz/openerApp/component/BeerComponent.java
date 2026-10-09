@@ -21,19 +21,20 @@ public class BeerComponent {
     @Autowired
     private BeerService beerService;
 
-    public void process() {
+    public BeerComponent() {
         System.out.println("The BeerComponent object is created\n");
     }
 
     @GetMapping
     public String beerOpener() {
         System.out.println("The beerOpener() method is called");
-        return "Beer.jsp";
+        return "Beer";
     }
 
     @PostMapping
     public String beer(Model model, @Valid BeerDTO beerDTO, BindingResult bindingResult) {
         System.out.println("The beer() method is called");
+        System.out.println("Received BeerDTO: " + beerDTO);
         if(bindingResult.hasErrors()){
             System.out.println("There is validation error, please fit it correctly");
             List<ObjectError> errors = bindingResult.getAllErrors();
@@ -44,6 +45,14 @@ public class BeerComponent {
             this.beerService.validateAndSave(beerDTO);
             model.addAttribute("beerMessage", "Beer saved successfully");
         }
-        return "Beer.jsp";
+        return "Beer";
+    }
+
+    @GetMapping("/showAll")
+    public String getAll(Model model) {
+        System.out.println("The getAll() method is called");
+        List<BeerDTO> beerList = this.beerService.getAll();
+        model.addAttribute("beerList", beerList);
+        return "ShowAll";
     }
 }

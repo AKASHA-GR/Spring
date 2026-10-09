@@ -22,9 +22,13 @@ public class GinServiceImpl implements GinService {
 
     @Override
     public boolean validateAndSave(GinDTO ginDTO) {
+        System.out.println("The validateAndSave() method is called\n");
         if(ginDTO != null){
+            System.out.println("The ginDTO is not null\n");
+            System.out.println("GinDTO content: " + ginDTO);
             GinEntity ginEntity = new GinEntity();
             BeanUtils.copyProperties(ginDTO,ginEntity);
+            System.out.println("GinEntity content before saving: " + ginEntity);
             ginRepository.save(ginEntity);
             return true;
         }

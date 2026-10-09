@@ -12,43 +12,43 @@
                 <form action="beer" method="post" class="needs-validation">
                     <div class="mb-3">
                         <label for="companyName" class="form-label">Company Name</label>
-                        <input type="text" class="form-control" id="companyName" name="companyName" value="${beerDTO.companyName}">
+                        <input type="text" class="form-control" id="companyName" name="companyName" value="${beerDTO.companyName}" required>
                     </div>
                     <div class="mb-3">
                         <label for="companyAddress" class="form-label">Company Address</label>
-                        <input type="text" class="form-control" id="companyAddress" name="companyAddress" value="${beerDTO.companyAddress}">
+                        <input type="text" class="form-control" id="companyAddress" name="companyAddress" value="${beerDTO.companyAddress}" required>
                     </div>
                     <div class="mb-3">
                         <label for="manufacturerName" class="form-label">Manufacturer Name</label>
-                        <input type="text" class="form-control" id="manufacturerName" name="manufacturerName" value="${beerDTO.manufacturerName}">
+                        <input type="text" class="form-control" id="manufacturerName" name="manufacturerName" value="${beerDTO.manufacturerName}" required>
                     </div>
                     <div class="mb-3">
                         <label for="manufactureDate" class="form-label">Manufacture Date</label>
-                        <input type="date" class="form-control" id="manufactureDate" name="manufactureDate" value="${beerDTO.manufactureDate}">
+                        <input type="date" class="form-control" id="manufactureDate" name="manufactureDate" value="${beerDTO.manufactureDate}" required>
                     </div>
                     <div class="mb-3">
                         <label for="alcoholContent" class="form-label">Alcohol Content (%)</label>
-                        <input type="number" step="0.1" class="form-control" id="alcoholContent" name="alcoholContent" value="${beerDTO.alcoholContent}">
+                        <input type="number" step="0.1" class="form-control" id="alcoholContent" name="alcoholContent" value="${beerDTO.alcoholContent}" required>
                     </div>
                     <div class="mb-3">
                         <label for="beerType" class="form-label">Beer Type</label>
-                        <input type="text" class="form-control" id="beerType" name="beerType" value="${beerDTO.beerType}">
+                        <input type="text" class="form-control" id="beerType" name="beerType" value="${beerDTO.beerType}" required>
                     </div>
                     <div class="mb-3">
                         <label for="volume" class="form-label">Volume (ml)</label>
-                        <input type="number" class="form-control" id="volume" name="volume" value="${beerDTO.volume}">
+                        <input type="number" class="form-control" id="volume" name="volume" value="${beerDTO.volume}" required>
                     </div>
                     <div class="mb-3">
                         <label for="price" class="form-label">Price</label>
-                        <input type="number" step="0.01" class="form-control" id="price" name="price" value="${beerDTO.price}">
+                        <input type="number" step="0.01" class="form-control" id="price" name="price" value="${beerDTO.price}" required>
                     </div>
                     <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="isBottled" name="isBottled" ${beerDTO.isBottled ? 'checked' : ''}>
+                        <input type="checkbox" class="form-check-input" id="isBottled" name="isBottled" value="true" ${beerDTO.isBottled ? 'checked' : ''}>
                         <label for="isBottled" class="form-check-label">Is Bottled</label>
                     </div>
                     <div class="mb-3">
                         <label for="expiryDate" class="form-label">Expiry Date</label>
-                        <input type="date" class="form-control" id="expiryDate" name="expiryDate" value="${beerDTO.expiryDate}">
+                        <input type="date" class="form-control" id="expiryDate" name="expiryDate" value="${beerDTO.expiryDate}" required>
                     </div>
                     <button type="submit" class="btn btn-primary w-100">Submit</button>
                 </form>

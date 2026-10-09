@@ -28,11 +28,13 @@ public class GinComponent {
     @GetMapping
     public String opener() {
         System.out.println("The opener() method is called");
-        return "Gin.jsp";
+        return "Gin";
     }
 
     @PostMapping
     public String gin(Model model, @Valid GinDTO ginDTO, BindingResult bindingResult) {
+        System.out.println("The gin() method is called");
+        System.out.println("Received GinDTO: " + ginDTO);
         if(bindingResult.hasErrors()){
             System.out.println("There is a validation error, please correct it");
             List<ObjectError> errors = bindingResult.getAllErrors();
@@ -41,11 +43,11 @@ public class GinComponent {
         }else {
             System.out.println("There is no validation error, please enter the gin service");
             ginService.validateAndSave(ginDTO);
+            System.out.println("GinDTO"+ginDTO);
             model.addAttribute("GinMessage","The gin is saved successfully");
         }
-        System.out.println("The gin() method is called");
 
-        return "Gin.jsp";
+        return "Gin";
     }
 
 }

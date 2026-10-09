@@ -42,13 +42,13 @@ public class WineComponent {
         }
 
 
-        return "Wine.jsp";
+        return "Wine";
     }
 
     @GetMapping("/opener")
     public String opener(){
         System.out.println("The opener() method is called\n");
 
-        return "Wine.jsp";
+        return "Wine";
     }
 }
