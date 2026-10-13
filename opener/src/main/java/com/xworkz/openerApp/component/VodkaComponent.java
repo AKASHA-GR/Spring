@@ -10,6 +10,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -36,14 +37,31 @@ public class VodkaComponent {
         if (bindingResult.hasErrors()) {
             System.out.println("There are some validation errors,please correct them");
             List<ObjectError> errors = bindingResult.getAllErrors();
-            model.addAttribute("errors", errors);
-
+            model.addAttribute("validationErrors", errors);
+            model.addAttribute("vodkaDTO", vodkaDTO);
         }else {
             System.out.println("There is no validation errors,proceeding to service");
             this.vodkaService.validateAndSave(vodkaDTO);
             model.addAttribute("message", "Vodka saved successfully");
         }
 
+        return "Vodka";
+    }
+
+    @GetMapping("/showAll")
+    public String showAll(Model model) {
+        System.out.println("The showAll() method is called");
+        List<VodkaDTO> vodkaDTOList = this.vodkaService.findAll();
+        model.addAttribute("vodkaDTOList", vodkaDTOList);
+        return "VodkaDisplay";
+    }
+
+    @GetMapping("/editVodka")
+    public String editVodka(Model model, @RequestParam int id) {
+        System.out.println("Running editVodka in VodkaComponent");
+        System.out.println("Vodka id to edit:"+id);
+        VodkaDTO vodkaDTO = this.vodkaService.findById(id);
+        model.addAttribute("vodkaDTO", vodkaDTO);
         return "Vodka";
     }
 }
