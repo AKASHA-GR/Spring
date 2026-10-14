@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
+import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
@@ -37,8 +38,19 @@ public class DatabaseConfiguration {
         LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         localContainerEntityManagerFactoryBean.setDataSource(dataSource);
         localContainerEntityManagerFactoryBean.setPackagesToScan("com.xworkz.openerApp.entity");
+        localContainerEntityManagerFactoryBean.setJpaProperties(hibernateProperties());
         localContainerEntityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
         return localContainerEntityManagerFactoryBean;
+    }
+
+
+
+    @Bean
+    public Properties hibernateProperties() {
+        Properties properties = new Properties();
+        properties.put("hibernate.show_sql", true);
+        properties.put("hibernate.format_sql", true);
+        return properties;
     }
 
     @Bean
@@ -48,5 +60,7 @@ public class DatabaseConfiguration {
         jpaTransactionManager.setEntityManagerFactory(entityManagerFactory);
         return jpaTransactionManager;
     }
+
+
 
 }

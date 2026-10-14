@@ -17,6 +17,13 @@
             background-color: #f2f2f2;
         }
     </style>
+    <script>
+        function confirmDelete(id) {
+            if (confirm("Are you sure you want to delete this record?")) {
+                window.location.href = "/opener/vodka/vodkaDelete?id=" + id;
+            }
+        }
+    </script>
 </head>
 <body>
     <h1>Vodka Display</h1>
@@ -35,6 +42,7 @@
                 <th>Is Bottled</th>
                 <th>Expiry Date</th>
                 <th>Actions</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -52,6 +60,7 @@
                     <td>${vodkaDTO.isBottled}</td>
                     <td>${vodkaDTO.expiryDate}</td>
                     <td><a href="editVodka?id=${vodkaDTO.id}">Edit</a></td>
+                    <td><a href="javascript:void(0)" onclick="confirmDelete(${vodkaDTO.id})">Delete</a></td>
                 </tr>
             </c:forEach>
         </tbody>

@@ -8,4 +8,5 @@ public interface VodkaService {
     public boolean validateAndSave(VodkaDTO vodkaDTO);
     public List<VodkaDTO> findAll();
     public VodkaDTO findById(int id);
+    public Boolean deleteById(int id);
 }

@@ -22,6 +22,8 @@
                         <th>Price</th>
                         <th>Is Bottled</th>
                         <th>Expiry Date</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -37,6 +39,8 @@
                             <td>${beer.price}</td>
                             <td>${beer.isBottled}</td>
                             <td>${beer.expiryDate}</td>
+                            <td><a href="editBeer?id=${beer.id}">Edit</a></td>
+                            <td><a href="deleteBeer?id=${beer.id}">Delete</a></td>
                         </tr>
                     </c:forEach>
                 </tbody>

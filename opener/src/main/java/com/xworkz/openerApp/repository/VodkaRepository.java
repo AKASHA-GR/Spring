@@ -10,5 +10,7 @@ public interface VodkaRepository {
     public Boolean save(VodkaEntity vodkaEntity);
     public List<VodkaEntity> findAll();
     Optional<VodkaEntity> findById(int id);
+    public Boolean deleteById(int id);
 
 }
+

@@ -10,6 +10,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -53,6 +54,13 @@ public class BeerComponent {
         System.out.println("The getAll() method is called");
         List<BeerDTO> beerList = this.beerService.getAll();
         model.addAttribute("beerList", beerList);
-        return "ShowAll";
+        return "BeerDisplay";
+    }
+
+    @PostMapping("/editBeer")
+    public String editBeer(Model model, @RequestParam int id){
+        System.out.println("The editBeer() method is called");
+        System.out.println("Vodka id to edit:"+id);
+        return "BeerUpdate";
     }
 }

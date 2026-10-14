@@ -71,4 +71,15 @@ public class VodkaServiceImpl implements VodkaService {
 
         return null;
     }
+
+    @Override
+    public Boolean deleteById(int id) {
+        System.out.println("The deleteById() method is called in service");
+        if(id >= 0){
+            System.out.println("The id is positive, we will delete vodka by id ");
+            return this.vodkaRepository.deleteById(id);
+        }
+        System.out.println("id is not positive or data is not there");
+        return false;
+    }
 }

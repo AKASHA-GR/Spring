@@ -24,7 +24,7 @@ public class VodkaRepositoryImpl implements VodkaRepository {
         System.out.println("The save() method is called");
         System.out.println("VodkaEntity: " + vodkaEntity);
         if(vodkaEntity != null){
-            entityManager.persist(vodkaEntity);
+            entityManager.merge(vodkaEntity);
             return true;
         }
         return false;
@@ -48,4 +48,20 @@ public class VodkaRepositoryImpl implements VodkaRepository {
         VodkaEntity vodkaEntity = this.entityManager.find(VodkaEntity.class, id);
         return Optional.ofNullable(vodkaEntity);
     }
+
+    @Override
+    public Boolean deleteById(int id) {
+        System.out.println("The deleteById() method is called in repository");
+        if(id > 0){
+            VodkaEntity vodkaEntity = this.entityManager.find(VodkaEntity.class, id);
+            if(vodkaEntity != null){
+                this.entityManager.remove(vodkaEntity);
+                return true;
+            }
+            System.out.println("Entity with id " + id + " not found");
+        }
+        return false;
+    }
+
+
 }

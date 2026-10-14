@@ -7,10 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -62,6 +59,24 @@ public class VodkaComponent {
         System.out.println("Vodka id to edit:"+id);
         VodkaDTO vodkaDTO = this.vodkaService.findById(id);
         model.addAttribute("vodkaDTO", vodkaDTO);
-        return "Vodka";
+        return "VodkaUpdate";
+    }
+
+    @PostMapping("/vodkaUpdate")
+    public String vodkaUpdate(Model model, @Valid VodkaDTO vodkaDTO, BindingResult bindingResult) {
+        System.out.println("The vodkaUpdate() method is called in component");
+        this.vodkaService.validateAndSave(vodkaDTO);
+        model.addAttribute("message", "Vodka updated successfully");
+        return "VodkaUpdate";
+    }
+
+    @GetMapping("/vodkaDelete")
+    public String vodkaDelete(Model model, @RequestParam int id){
+        System.out.println("The vodkaDelete() method is called in component");
+        this.vodkaService.deleteById(id);
+        model.addAttribute("message", "Vodka'"+id+"' deleted successfully");
+        List<VodkaDTO> vodkaDTOList = this.vodkaService.findAll();
+        model.addAttribute("vodkaDTOList", vodkaDTOList);
+        return "VodkaDisplay";
     }
 }

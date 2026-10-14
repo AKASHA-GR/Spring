@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class BeerRepositoryImpl implements BeerRepository {
@@ -36,5 +37,16 @@ public class BeerRepositoryImpl implements BeerRepository {
     public List<BeerEntity> getAll() {
         System.out.println("The getAll() method is called");
         return entityManager.createNamedQuery("BeerEntity.findAll", BeerEntity.class).getResultList();
+    }
+
+    @Override
+    public Optional<BeerEntity> findById(int id) {
+        System.out.println("The ");
+        return Optional.empty();
+    }
+
+    @Override
+    public Boolean deleteById(int id) {
+        return null;
     }
 }
