@@ -59,7 +59,7 @@ public class BeerComponent {
 
     @PostMapping("/editBeer")
     public String editBeer(Model model, @RequestParam int id){
-        System.out.println("The editBeer() method is called");
+        System.out.println("The editBeer() method is called in controller.");
         System.out.println("Vodka id to edit:"+id);
         return "BeerUpdate";
     }
